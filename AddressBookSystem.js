@@ -87,3 +87,9 @@ class Contact {
                 +this.state+ ", zip=" +this.zip+ ", phone=" +this.phone+ ", email=" +this.email;
     }
 }
+
+
+let contactArray = new Array();
+contactArray.push(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
+contactArray.push(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
+console.log(contactArray);
