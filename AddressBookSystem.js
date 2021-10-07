@@ -34,31 +34,53 @@ class Contact {
     get email() {
         return this._email;
     }
+
+    validate(regex, string) {
+        let regexValidator  = RegExp(regex);
+        return regexValidator.test(string);
+    }
     
     set firstName(firstName) {
-        this._firstName = firstName;
+        if(this.validate('^[A-Z]{1}[a-z]{2,}$',firstName))
+            this._firstName = firstName;
+        else throw 'firstName is Incorrect! please enter correct one';
     }
     set lastName(lastName) {
-        this._lastName = lastName;
+        if(this.validate('^[A-Z]{1}[a-z]{2,}$',lastName))
+            this._lastName = lastName;
+        else throw 'lastName is Incorrect! please enter correct one';
     }
     set address(address) {
-        this._lastName = lastName;
+        if(this.validate('[A-Za-z]{4,}',address))
+            this._address = address;
+        else throw 'Address is not valid'
     }
     set city(city) {
-        this._city = city;
+        if(this.validate('[A-Za-z]{4,}',city))
+            this._city = city;
+        else throw 'city is not valid'
     }
     set state(state) {
-        this._state = state;
+        if(this.validate('[A-Za-z]{4,}',state))
+            this._state = state;
+        else throw 'State is not valid'
     }
     set zip(zip) {
-        this._zip = zip;
+        if(this.validate('(^[0-9]{3})([\s]?)([0-9]{3}$)',zip))
+            this._zip = zip;
+        else throw 'zip is not valid'
     }
     set phone(phone) {
-        this._phone = phone;
+        if(this.validate('[1-9][0-9][\\s][1-9][0-9]{9}',phone))
+            this._phone = phone;
+        else throw 'phone number is not valid'
     }
     set email(email) {
-        this._email = email;
+        if(this.validate('([a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9])(([+_.-][a-zA-Z0-9]*)?)(@[a-zA-Z0-9]+)([.])([a-z]{2,})(([.][a-z]{2,})?)',email))
+            this._email = email;
+        else throw 'email is not valid'
     }
+    
     
     toString() {
         return "firstName=" +this.firstName+ ", lastName=" +this.lastName+ ", address=" +this.address+ ", city=" +this.address+ ", state=" 
