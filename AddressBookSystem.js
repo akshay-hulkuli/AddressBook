@@ -91,9 +91,9 @@ class Contact {
 //UC3
 let contactArray = new Array();
 checkDuplicatedAndAdd(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
-checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
+checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",320415,"91 1234564511","ananth@gmail.com"));
 checkDuplicatedAndAdd(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
-checkDuplicatedAndAdd(new Contact("Srikanth","Khan","BSK II satge","Pune","Maharashtra",577415,"91 1234567823","srikanth@gmail.com"));
+checkDuplicatedAndAdd(new Contact("Srikanth","Khan","BSK II satge","Pune","Maharashtra",787415,"91 1234567823","srikanth@gmail.com"));
 console.log("data in addressBook:")
 console.log(contactArray);
 findByNameAndEdit("Akshay","email","akshay.hp@perfios.com");
@@ -166,7 +166,7 @@ function checkDuplicatedAndAdd(contact){
     else console.log("the contact already exists");
 }
 
-checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
+checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",452415,"91 1234564511","ananth@gmail.com"));
 checkDuplicatedAndAdd(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
 
 
@@ -262,3 +262,48 @@ function SortByName(){
 SortByName();
 console.log("sortedArray based on name: ")
 console.log(contactArray);
+
+
+// UC12 sort by zip, state, city
+function SortByZip(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._zip > contact2._zip)
+            return 1;
+        else if(contact1._zip < contact2._zip)
+            return -1;
+        else 0;
+    })
+}
+
+function SortByCity(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._city > contact2._city)
+            return 1;
+        else if(contact1._city < contact2._city)
+            return -1;
+        else 0;
+    })
+}
+
+function SortByState(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._state > contact2._state)
+            return 1;
+        else if(contact1._state < contact2._state)
+            return -1;
+        else 0;
+    })
+}
+
+SortByZip();
+console.log("sortedArray based on Zip: ")
+console.log(contactArray);
+
+SortByCity();
+console.log("sortedArray based on City: ")
+console.log(contactArray);
+
+SortByState();
+console.log("sortedArray based on State: ")
+console.log(contactArray);
+
