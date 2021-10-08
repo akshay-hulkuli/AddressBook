@@ -93,6 +93,7 @@ let contactArray = new Array();
 checkDuplicatedAndAdd(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
 checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
 checkDuplicatedAndAdd(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
+checkDuplicatedAndAdd(new Contact("Srikanth","Khan","BSK II satge","Pune","Maharashtra",577415,"91 1234567823","srikanth@gmail.com"));
 console.log("data in addressBook:")
 console.log(contactArray);
 findByNameAndEdit("Akshay","email","akshay.hp@perfios.com");
@@ -239,3 +240,25 @@ function getCountByState(state){
 
 console.log("number of persons in thirthahalli:" + getCountByCity("Thirthahalli"));
 console.log("number of persons in Karnataka:" + getCountByState("Karnataka"));
+
+//UC11 sort by name
+
+function SortByName(){
+    contactArray.sort((contact1,contact2) =>{
+        if(contact1._firstName > contact2._firstName)
+            return 1;
+        else if(contact1._firstName < contact2._firstName)
+            return -1;
+        else {
+            if(contact1._lastName > contact2._lastName)
+            return 1;
+            else if(contact1._lastName < contact2._lastName)
+            return -1;
+            else return 0;
+        }
+    })
+}
+
+SortByName();
+console.log("sortedArray based on name: ")
+console.log(contactArray);
