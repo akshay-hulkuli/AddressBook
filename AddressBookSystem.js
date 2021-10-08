@@ -196,3 +196,30 @@ searchInACity("Akshay","Thirthahalli");
 searchInACity("Akash","Pune");
 searchInAState("Ankith","Karnataka");
 searchInAState("Ankith","Kerala");
+
+
+//UC9 view persons in a city or state
+function contactsInCity(city){
+    let peopleInGivenCity = contactArray.filter(contact => contact._city == city);
+    if(peopleInGivenCity.length == 0) { 
+        console.log("\ncity not found");
+    }
+    else {
+        console.log("\nContacts in city "+ city+ " are/is:");
+        console.log(peopleInGivenCity);
+    }
+}
+
+function contactsInState(state){
+    let peopleInGivenState = contactArray.filter(contact => contact._state == state);
+    if(peopleInGivenState.length == 0) { 
+        console.log("\nstate not found");
+    }
+    else {
+        console.log("\nContacts in state "+ state+ " are/is:");
+        console.log(peopleInGivenState);
+    }
+}
+
+contactsInCity("Thirthahalli");
+contactsInState("Karnataka");
