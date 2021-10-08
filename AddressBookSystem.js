@@ -148,7 +148,7 @@ console.log(contactArray);
 //UC6  getCount
 
 function getCount(){
-    let numberOfContacts = contactArray.reduce((numberOfContacts,contact) => numberOfContacts +=1,0);
+    let numberOfContacts = contactArray.reduce((numberOfContacts) => numberOfContacts +=1,0);
     return numberOfContacts;
 }
 
@@ -223,3 +223,19 @@ function contactsInState(state){
 
 contactsInCity("Thirthahalli");
 contactsInState("Karnataka");
+
+//UC10 get count by city or state
+
+function getCountByCity(city){
+    let numberOfContacts = contactArray.filter(contact => contact._city == city)
+                                       .reduce(numberOfContacts => numberOfContacts+1,0);
+    return numberOfContacts;
+}
+function getCountByState(state){
+    let numberOfContacts = contactArray.filter(contact => contact._state == state)
+                                       .reduce(numberOfContacts => numberOfContacts+1,0);
+    return numberOfContacts;
+}
+
+console.log("number of persons in thirthahalli:" + getCountByCity("Thirthahalli"));
+console.log("number of persons in Karnataka:" + getCountByState("Karnataka"));
