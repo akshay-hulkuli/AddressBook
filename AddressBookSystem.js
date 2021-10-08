@@ -90,9 +90,9 @@ class Contact {
 
 //UC3
 let contactArray = new Array();
-contactArray.push(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
-contactArray.push(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
-contactArray.push(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
+checkDuplicatedAndAdd(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
+checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
+checkDuplicatedAndAdd(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
 console.log("data in addressBook:")
 console.log(contactArray);
 findByNameAndEdit("Akshay","email","akshay.hp@perfios.com");
@@ -153,3 +153,18 @@ function getCount(){
 }
 
 console.log("number of contacts : "+getCount());
+
+
+//UC7 check for duplicate
+
+function checkDuplicatedAndAdd(contact){
+    let duplicate = contactArray.find(currentContact => currentContact._firstName == contact._firstName && currentContact._lastName == contact._lastName);
+    if(duplicate == null){
+        contactArray.push(contact);
+    }
+    else console.log("the contact already exists");
+}
+
+checkDuplicatedAndAdd(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
+
+
