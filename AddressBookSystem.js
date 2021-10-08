@@ -93,3 +93,40 @@ let contactArray = new Array();
 contactArray.push(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
 contactArray.push(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
 console.log(contactArray);
+
+findByName("Akshay","email","akshay.hp@perfios.com");
+
+console.log(contactArray);
+
+function findByNameAndEdit(firstName,attribute, value){
+    let contact = contactArray.find(contact => contact._firstName == firstName);
+    if(contact == null) console.log("name not found");
+    switch(attribute){
+        case "firstName":
+            contact._firstName = value;
+            break;
+        case "lastName":
+            contact._lastName = value;
+            break;
+        case "address":
+            contact._address = value;
+            break;
+        case "city":
+            contact._city = value;
+            break;
+        case "state":
+            contact._state = value;
+            break;
+        case "zip":
+            contact._zip = value;
+            break;
+        case "phone":
+            contact._phone = value;
+            break;
+        case "email":
+            contact._email = value;
+            break;
+        default:
+            console.log("wrong attribute is specified");
+    }
+}
