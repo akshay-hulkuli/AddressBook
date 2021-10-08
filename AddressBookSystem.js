@@ -165,6 +165,34 @@ function checkDuplicatedAndAdd(contact){
     else console.log("the contact already exists");
 }
 
+checkDuplicatedAndAdd(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
 checkDuplicatedAndAdd(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
 
 
+//UC8 search person in city or state
+
+function searchInACity(firstName,city){
+    let peopleInGivenCity = contactArray.filter(contact => contact._firstName == firstName && contact._city == city);
+    if(peopleInGivenCity.length == 0) { 
+        console.log("\nno contact named "+ firstName+ " is found in city "+ city);
+    }
+    else {
+        console.log("\nContacts named "+ firstName+" in city "+ city+ " are/is:");
+        console.log(peopleInGivenCity);
+    }
+}
+function searchInAState(firstName,state){
+    let peopleInGivenState = contactArray.filter(contact => contact._firstName == firstName && contact._state == state);
+    if(peopleInGivenState.length == 0) {
+        console.log("\nno contact named "+ firstName+ " is found in state "+ state);
+    }
+    else{
+        console.log("\nContacts named "+ firstName+" in state "+ state+ " are/is:");
+        console.log(peopleInGivenState);
+    }
+}
+
+searchInACity("Akshay","Thirthahalli");
+searchInACity("Akash","Pune");
+searchInAState("Ankith","Karnataka");
+searchInAState("Ankith","Kerala");
