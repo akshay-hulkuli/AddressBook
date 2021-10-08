@@ -91,6 +91,7 @@ class Contact {
 //UC3
 let contactArray = new Array();
 contactArray.push(new Contact("Akshay","Hulkuli","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234567891","akshay@gmail.com"));
+contactArray.push(new Contact("Ananth","Nandyala","Hulkuli","Thirthahalli","Karnataka",577415,"91 1234564511","ananth@gmail.com"));
 contactArray.push(new Contact("Ankith","Kumar","Padmanabha Nagar","Bengaluru","Karnataka",560080,"91 9874567891","ankith@gmail.com.in"));
 console.log("data in addressBook:")
 console.log(contactArray);
@@ -133,13 +134,22 @@ function findByNameAndEdit(firstName,attribute, value){
     }
 }
 
-//UC search and delete
+//UC5 search and delete
 
 function deleteByName(firstName,lastName){
     let index  = contactArray.findIndex(contact => contact._firstName == firstName && contact._lastName == lastName);
     contactArray.splice(index,1);
 }
 
-deleteByName("Akshay","Hulkuli");
+deleteByName("Ananth","Nandyala");
 console.log("\n after deleting contact in addressBook:")
 console.log(contactArray);
+
+//UC6  getCount
+
+function getCount(){
+    let numberOfContacts = contactArray.reduce((numberOfContacts,contact) => numberOfContacts +=1,0);
+    return numberOfContacts;
+}
+
+console.log("number of contacts : "+getCount());
